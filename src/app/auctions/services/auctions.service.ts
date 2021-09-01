@@ -50,7 +50,7 @@ export class AuctionsService {
       userid: userId,
     };
 
-    return interval(5000).pipe(
+    return interval(20000).pipe(
       startWith(0),
       switchMap(
         () => this.http.get(url, { headers }) as Observable<AuctionsResponse>

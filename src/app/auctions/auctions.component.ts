@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Auction, AuctionsService } from './services/auctions.service';
@@ -7,6 +7,7 @@ import { Auction, AuctionsService } from './services/auctions.service';
   selector: 'app-auctions',
   templateUrl: './auctions.component.html',
   styleUrls: ['./auctions.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AuctionsComponent implements OnInit {
   constructor(private auctionsService: AuctionsService) {}
@@ -19,7 +20,6 @@ export class AuctionsComponent implements OnInit {
       .getAuctions()
       .pipe(
         catchError((err: any) => {
-          console.log('catched error');
           this.error = 'Auctions could not be retrieved!';
           return of([]);
         })
