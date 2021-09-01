@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,30 +11,52 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './login/services/login.service';
+import { AuctionsService } from './auctions/services/auctions.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginErrorComponent } from './login/login-error/login-error.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { AuctionsComponent } from './auctions/auctions.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CountDownComponent } from './count-down/count-down.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { UserLocalStorageService } from './services/user-local-storage.service';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, LoginErrorComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    LoginErrorComponent,
+    AuctionsComponent,
+    PageNotFoundComponent,
+    CountDownComponent,
+  ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
+    MatSnackBarModule,
     FlexLayoutModule,
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule,
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    AuctionsService,
+    AuthGuardService,
+    UserLocalStorageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
