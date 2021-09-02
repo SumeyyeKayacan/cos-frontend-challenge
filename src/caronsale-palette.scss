@@ -1,0 +1,35 @@
+$dark-primary-text: rgba(white, 0.9);
+$light-primary-text: rgba(black, 0.9);
+
+$cos-palette: (
+  50: #fff8e1,
+  100: #ffebb4,
+  200: #ffdf83,
+  300: #ffd452,
+  400: #ffc92e,
+  500: #ffbf15,
+  600: #feb210,
+  700: #fe9f0f,
+  800: #fe8e0d,
+  900: #fd6e0b,
+  A100: #ffebb4,
+  A200: #ffdf83,
+  A400: #ffc92e,
+  A700: #fe9f0f,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  ),
+);
