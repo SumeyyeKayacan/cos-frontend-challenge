@@ -1,13 +1,16 @@
-<div class="content">
+<div class="full-height">
   <div *ngIf="error">{{ error }}</div>
-  <div *ngIf="!error" fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div
-      fxFlex="25%"
-      fxFlex.sm="33%"
-      fxFlex.xs="100%"
-      *ngFor="let auction of auctions"
-    >
-      <app-auction [auction]="auction"></app-auction>
+  <div *ngIf="!error" class="full-height">
+    <div *ngIf="!auctions" class="loading">Loading...</div>
+    <div *ngIf="auctions" fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div
+        fxFlex="25%"
+        fxFlex.sm="33%"
+        fxFlex.xs="100%"
+        *ngFor="let auction of auctions"
+      >
+        <app-auction [auction]="auction"></app-auction>
+      </div>
     </div>
   </div>
 </div>

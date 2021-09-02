@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -48,12 +50,13 @@ import { AuctionComponent } from './auctions/auction/auction.component';
     MatInputModule,
     MatCardModule,
     MatSnackBarModule,
-    FlexLayoutModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatToolbarModule,
   ],
   providers: [
     LoginService,

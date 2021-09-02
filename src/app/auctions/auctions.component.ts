@@ -12,7 +12,7 @@ export class AuctionsComponent implements OnInit {
   constructor(private auctionsService: AuctionsService) {}
 
   error: string = '';
-  auctions: Auction[] = [];
+  auctions?: Auction[];
 
   ngOnInit() {
     this.auctionsService
