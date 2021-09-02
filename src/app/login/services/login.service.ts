@@ -3,9 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from 'src/app/constants';
 import { UserLocalStorageService } from 'src/app/services/user-local-storage.service';
 
+const SALESMAN_PREVLIGE = 'SALESMAN_USER';
+
 interface Response {
   token: string;
   userId: string;
+  privileges: string;
 }
 
 @Injectable({
@@ -20,11 +23,14 @@ export class LoginService {
   async authenticate(email: string, password: string) {
     const url = `${BASE_URL}/v1/authentication/${email}`;
 
-    const body = { password: '123test', meta: 'string' };
+    const body = { password, meta: 'string' };
     const response = (await this.http.put(url, body).toPromise()) as Response;
 
-    const { token, userId } = response;
+    if (!response.privileges.includes(SALESMAN_PREVLIGE)) {
+      throw new Error();
+    }
 
+    const { token, userId } = response;
     this.userLocalStorageService.saveUser({ token, userId });
   }
 }
