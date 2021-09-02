@@ -7,7 +7,6 @@ import { Auction, AuctionsService } from './services/auctions.service';
   selector: 'app-auctions',
   templateUrl: './auctions.component.html',
   styleUrls: ['./auctions.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class AuctionsComponent implements OnInit {
   constructor(private auctionsService: AuctionsService) {}
