@@ -1,5 +1,3 @@
-<div>
-  {{ duration.days }}d:{{ duration.hours }}h:{{ duration.minutes }}m:{{
-    duration.seconds
-  }}s
+<div *ngIf="duration">
+  {{ duration.hours }}h:{{ duration.minutes }}m:{{ duration.seconds }}s
 </div>

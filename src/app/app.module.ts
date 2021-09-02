@@ -27,6 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CountDownComponent } from './count-down/count-down.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserLocalStorageService } from './services/user-local-storage.service';
+import { AuctionComponent } from './auctions/auction/auction.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UserLocalStorageService } from './services/user-local-storage.service';
     AuctionsComponent,
     PageNotFoundComponent,
     CountDownComponent,
+    AuctionComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,61 +1,13 @@
 <div class="content">
   <div *ngIf="error">{{ error }}</div>
-  <div
-    *ngIf="!error"
-    fxLayout="row wrap"
-    fxLayoutGap="16px grid"
-    fxLayoutAlign="start start"
-  >
+  <div *ngIf="!error" fxLayout="row wrap" fxLayoutGap="16px grid">
     <div
       fxFlex="25%"
       fxFlex.sm="33%"
       fxFlex.xs="100%"
       *ngFor="let auction of auctions"
     >
-      <mat-card class="mat-elevation-z4">
-        <mat-card-header>
-          <mat-card-title>{{ auction.label }}</mat-card-title>
-        </mat-card-header>
-        <div class="sub-header">
-          <span> {{ auction.associatedVehicle.ez }} &nbsp;| &nbsp;</span>
-          <span
-            >{{ auction.associatedVehicle.mileageInKm | number: "1.0-0" }} km
-            &nbsp;| &nbsp;</span
-          >
-          <span [ngSwitch]="auction.associatedVehicle.fuelType">
-            <span *ngSwitchCase="0">Erdgas(CNG)&nbsp;| &nbsp;</span>
-            <span *ngSwitchCase="1">Hybrid&nbsp;| &nbsp;</span>
-            <span *ngSwitchCase="2">Benzin&nbsp;| &nbsp;</span>
-            <span *ngSwitchCase="3">Autogas(LPG)&nbsp;| &nbsp;</span>
-            <span *ngSwitchCase="4">Diesel&nbsp;| &nbsp;</span>
-            <span *ngSwitchCase="5">Elektro&nbsp;| &nbsp;</span>
-          </span>
-
-          <span [ngSwitch]="auction.associatedVehicle.transmission">
-            <span *ngSwitchCase="0">Manuel</span>
-            <span *ngSwitchCase="1">Automatik</span>
-          </span>
-        </div>
-        <img
-          mat-card-image
-          src="{{ auction.associatedVehicle.vehicleImages[0].url }}"
-        />
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-between center">
-            <count-down [endingTime]="auction.endingTime"></count-down>
-            <span class="price">
-              <i
-                *ngIf="auction.amIHighestBidder"
-                class="fas fa-medal medal"
-              ></i>
-              {{
-                auction.currentHighestBidValue
-                  | currency: "EUR":"symbol":"1.0-0"
-              }}
-            </span>
-          </div>
-        </mat-card-content>
-      </mat-card>
+      <app-auction [auction]="auction"></app-auction>
     </div>
   </div>
 </div>
