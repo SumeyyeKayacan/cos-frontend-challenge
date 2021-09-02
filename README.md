@@ -6,22 +6,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Assumptions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Sorting
 
-## Build
+Assumptions regarding auction sorting (since it is always observed in that way during implmentation):
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Backend always sends the auctions sorted according to ending time
+- Backend always sends the autions first which current buyer is the highest bidder.
 
-## Running unit tests
+So, sorting is not prefered to be re-implementted on frontend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Enumaration
 
-## Running end-to-end tests
+Fueltype and transmision enumarations (-1, 0, 1,.) are matched to the their text names randomly.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Authentication
 
-## Further help
+AuthGuard is losely validating users (just checking user local storage token info exists or not).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Same error message is shown for wrong username/password entry and dealership login.
